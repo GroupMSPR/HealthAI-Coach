@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('password');
             $table->integer('age');
             $table->string('gender');
-            $table->string('weight');
-            $table->string('height');
-            $table->decimal('bmi', 15);
+            $table->decimal('weight');
+            $table->decimal('height');
+            $table->decimal('bmi', 5);
             $table->string('body_fat_pct');
             $table->text('goal');
             $table->string('subscription');

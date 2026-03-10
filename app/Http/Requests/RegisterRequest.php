@@ -29,8 +29,8 @@ class RegisterRequest extends FormRequest
             'password' => 'required|string|min:6|confirmed',
             'age' => 'required|integer|between:1,130',
             'gender' => 'required|string|in:male,female,other',
-            'weight' => 'required|integer|between:1,500',
-            'height' => 'required|integer|between:1,300',
+            'weight' => 'required|numeric|between:1,500',
+            'height' => 'required|numeric|between:1,300',
             'body_fat_pct' => 'required|integer|between:1,100',
             'goal' => 'required|string|max:500',
         ];

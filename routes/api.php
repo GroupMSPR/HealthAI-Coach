@@ -13,7 +13,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('logout', [AuthController::class, 'logout']);
 
     Route::get('users', function (Request $request) {
-        if (! $request->user()->tokenCan('view_users')) {
+        if ($request->user()->cannot('viewAny', \App\Models\User::class)) {
             return $request->user();
         }
 

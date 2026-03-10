@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 
 class RegisterController extends Controller
 {
-    public function Register(RegisterRequest $request): JsonResponse
+    public function register(RegisterRequest $request): JsonResponse
     {
         $bmi = null;
 

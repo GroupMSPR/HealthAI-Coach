@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->uuid('id')->primary()->default(DB::raw('gen_random_uuid()'));
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('age');
-            $table->string('gender', 50);
-            $table->string('weight', 50);
-            $table->string('height', 50);
+            $table->string('gender');
+            $table->string('weight');
+            $table->string('height');
             $table->decimal('bmi', 15);
-            $table->string('body_fat_pct', 50);
+            $table->string('body_fat_pct');
             $table->text('goal');
             $table->string('subscription');
             $table->timestamps();

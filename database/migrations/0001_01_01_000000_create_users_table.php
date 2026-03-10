@@ -26,6 +26,7 @@ return new class extends Migration
             $table->text('goal');
             $table->string('subscription');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

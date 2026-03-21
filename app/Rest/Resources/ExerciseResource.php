@@ -2,18 +2,18 @@
 
 namespace App\Rest\Resources;
 
-use App\Models\Food;
+use App\Models\Exercise;
 use Illuminate\Database\Eloquent\Model;
 use Lomkit\Rest\Http\Requests\RestRequest;
 
-class FoodResource extends Resource
+class ExerciseResource extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var class-string<Model>
      */
-    public static $model = Food::class;
+    public static $model = Exercise::class;
 
     /**
      * The exposed fields that could be provided
@@ -22,15 +22,12 @@ class FoodResource extends Resource
     {
         return [
             'name',
-            'category',
-            'calories',
-            'protein',
-            'carbohydrates',
-            'fat',
-            'fiber',
-            'sugars',
-            'sodium',
-            'cholesterol',
+            'type',
+            'difficulty_level',
+            'target_muscle',
+            'secondary_muscle',
+            'equipment',
+            'instructions',
         ];
     }
 
@@ -85,31 +82,28 @@ class FoodResource extends Resource
     {
         return [
             'name' => ['string'],
-            'category' => ['string'],
-            'calories' => ['decimal:8'],
-            'protein' => ['decimal:8'],
-            'carbohydrates' => ['decimal:8'],
-            'fat' => ['decimal:8'],
-            'fiber' => ['decimal:8'],
-            'sugars' => ['decimal:8'],
-            'sodium' => ['integer'],
-            'cholesterol' => ['integer'],
+            'type' => ['string'],
+            'difficulty_level' => ['string'],
+            'target_muscle' => ['string'],
+            'secondary_muscle' => ['string'],
+            'equipment' => ['string'],
+            'instructions' => ['string'],
         ];
     }
 
+    /**
+     * @return array[]
+     */
     public function createRules(RestRequest $request): array
     {
         return [
             'name' => ['required'],
-            'category' => ['required'],
-            'calories' => ['required'],
-            'protein' => ['required'],
-            'carbohydrates' => ['required'],
-            'fat' => ['required'],
-            'fiber' => ['required'],
-            'sugars' => ['required'],
-            'sodium' => ['required'],
-            'cholesterol' => ['required'],
+            'type' => ['required'],
+            'difficulty_level' => ['required'],
+            'target_muscle' => ['required'],
+            'secondary_muscle' => ['required'],
+            'equipment' => ['required'],
+            'instructions' => ['required'],
         ];
     }
 }
